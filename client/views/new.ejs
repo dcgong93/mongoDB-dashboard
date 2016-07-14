@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>New Animal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+        console.log("hello");
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Add a new beaver!</h1>
+      <form action="/mongooses" method="post">
+        Name: <input type="text" name="name" />
+        Age: <input type="text" name="age" />
+        Weight (lbs): <input type="text" name="weight" />
+        <input type="submit" name="submit" />
+      </form>
+      <a href="/">Cancel</a>
+    </div>
+  </body>
+</html>

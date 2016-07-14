@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>main</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+        console.log("hello");
+      });
+    </script>
+    <style>
+      #all_animals, #page_title {
+        border-bottom: solid 2px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="page_title">
+        <h1>These are all the Beavers!</h1>
+        <a href="/mongooses/new">New Beaver?</a>
+      </div>
+      <% for (var i=0; i < beavers.length; i++){ %>
+        <div id="all_animals">
+          <p>Name: <%= beavers[i].name %></p>
+          <p>Age: <%= beavers[i].age %></p>
+          <p>Weight: <%= beavers[i].weight %> (lbs)</p>
+          <ul class="list-inline">
+            <li><a href="/mongooses/<%= beavers[i]._id%>">Show This Beaver</a></li>
+            <li><a href="/mongooses/<%= beavers[i]._id%>/edit">Edit This Beaver</a></li>
+            <li>
+              <form action="/mongooses/<%= beavers[i]._id %>/destroy" method="post">
+                <button type="submit" name="submit">DESTROY THIS MF-in BEAVER!!!</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>
